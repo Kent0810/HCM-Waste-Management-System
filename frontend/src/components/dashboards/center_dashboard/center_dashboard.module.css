@@ -1,0 +1,14 @@
+.centerDashboard__grid{
+    width: 100%;
+    height: 100%;
+    grid-area: main;
+}
+.centerDashboard__content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0px;
+}
