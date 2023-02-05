@@ -26,13 +26,13 @@ input[type="search"] {
     color: inherit;
     border-radius: inherit;
 }
-button[type="submit"] {
+.searchbar__btn{
     background: transparent;
     border:  transparent;
     cursor: pointer;
     font-size: 1.2rem;
 }
-button[type="submit"]:focus,
+.searchbar__btn:focus,
 input[type="search"]:focus {
     border-color: none;
     outline: none;
