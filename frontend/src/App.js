@@ -10,6 +10,8 @@ import LeftDashboard from './components/dashboards/left_dashboard/left_dashboard
 import RightDashboard from './components/dashboards/right_dashboard/right_dashboard';
 import SignUpModal from './components/UI/modal/SignUpModal';
 
+
+
 function App() {
   const userUI = useSelector(state => state.ui.userIsVisible);
   const dispatch = useDispatch();

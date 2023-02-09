@@ -2,7 +2,7 @@ import styles from './right_dashboard.module.css';
 
 import { uiActions } from '../../../store/ui_slice';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { FaUserTie } from 'react-icons/fa'
 import { BsBellFill } from 'react-icons/bs'

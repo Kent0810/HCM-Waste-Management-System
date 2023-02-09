@@ -45,6 +45,7 @@ input[type="checkbox"]{
     outline-color: var(--color-subtle);
 }
 .td__location{
+    white-space: nowrap;
     width: 100%;
 }
 .td__btn{   
