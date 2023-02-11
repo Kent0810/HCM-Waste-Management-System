@@ -4,6 +4,7 @@ import Slot from "./table_slot";
 
 const DUMMY_DATA = [
     {
+        key: 0,
         isChecked: false,
         id: "#INV/21/22/A4",
         location: "District 1",
@@ -13,6 +14,7 @@ const DUMMY_DATA = [
         option: "Detail"
     },
     {
+        key: 1,
         isChecked: true,
         id: "#INV/21/22/A4",
         location: "District 4",
@@ -22,6 +24,7 @@ const DUMMY_DATA = [
         option: "Detail"
     },
     {
+        key: 2,
         isChecked: false,
         id: "#INV/21/22/A4",
         location: "District 7",
@@ -31,6 +34,7 @@ const DUMMY_DATA = [
         option: "Detail"
     },
     {
+        key: 3,
         isChecked: false,
         id: "#INV/21/22/A4",
         location: "District 2",
@@ -45,7 +49,7 @@ const DUMMY_DATA = [
 const Table = (props) => {
     return (
         <table>
-            <tr class="heading">
+            <tr className={styles.heading}>
                 <th><input type="checkbox" /></th>
                 <th>ID No.</th>
                 <th>Location</th>

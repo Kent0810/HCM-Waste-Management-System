@@ -7,6 +7,8 @@ import Card from '../../../UI/card/card'
 import { useTranslation } from 'react-i18next';
 import useCustomTranslate from "../../../../hooks/useCustomTranslate";
 
+import { useSelector } from 'react-redux';
+
 const Centerbox = () => {
     useCustomTranslate()
 

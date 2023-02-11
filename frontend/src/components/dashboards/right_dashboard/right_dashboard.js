@@ -14,7 +14,7 @@ const RightDashboard = () => {
 
 
     const toggleModalHandler = () => {
-        dispatch(uiActions.toggleUserUI());
+        dispatch(uiActions.toggleSignInUI());
     }
     let currentdate = new Date();
     let datetime = currentdate.getDate() + "/"

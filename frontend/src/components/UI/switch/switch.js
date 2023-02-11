@@ -17,7 +17,7 @@ const Switch = () => {
     return (
         <div className={styles.switch}>
             <img src={eng} alt="flag1"></img>
-            <label className={styles.toggle} for="myInput">
+            <label className={styles.toggle} htmlFor="myInput">
                 <input type="checkbox" onChange={CheckboxHandler} name="myInput" id="myInput" />
                 <div className={styles.toggle__fill}></div>
             </label>
