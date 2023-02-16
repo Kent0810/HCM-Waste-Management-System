@@ -2,6 +2,7 @@ import BottomSlot from '../../../UI/bottom_slot/bottom_slot'
 import styles from './right_bottom.module.css'
 const DUMMY_DATA = [
     {
+        key: 0,
         name:
             'Nguyen Van A',
         title:
@@ -10,6 +11,7 @@ const DUMMY_DATA = [
             'Available'
     },
     {
+        key: 1,
         name:
             'Thanh Thien',
         title:
@@ -18,6 +20,7 @@ const DUMMY_DATA = [
             'Unavailable'
     },
     {
+        key: 2,
         name:
             'Tommy Thai',
         title:
@@ -35,6 +38,7 @@ const RightBottom = () => {
                     {DUMMY_DATA.map((data) => {
                         return (
                             <BottomSlot
+                                key={data.key}
                                 name={data.name}
                                 title={data.title}
                                 status={data.status}

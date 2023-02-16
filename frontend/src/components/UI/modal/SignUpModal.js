@@ -11,6 +11,7 @@ import { useRef } from "react";
 
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../store/ui_slice";
+import storage from "../../../store/redux";
 
 const Backdrop = props => {
     return <div className={styles.backdrop} onClick={props.onClose} />;
@@ -22,10 +23,11 @@ const Modal = props => {
     const userNameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
+    const confirmedPasswordRef = useRef()
     const birthRef = useRef()
     const rollRef = useRef()
 
-    const [data, handleUserData] = useSignUp({})
+    const [data, HandleSignUpData] = useSignUp({})
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -34,11 +36,12 @@ const Modal = props => {
             userName: userNameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
+            confirmedPassword: confirmedPasswordRef.current.value,
             birth: birthRef.current.value,
             roll: rollRef.current.value,
         }
-
-        handleUserData(userData)
+        dispatch(uiActions.toggleLoading());
+        HandleSignUpData(userData)
     }
 
     const signInToggle = (e) => {
@@ -55,6 +58,7 @@ const Modal = props => {
                 <input type="text" className={styles.modal__form__control} name="email" placeholder="Enter Email Address?" required="" autofocus="" ref={emailRef} />
                 <input type="date" className={`${styles.modal__form__control} ${styles.modal__form__date}`} name="birthday" placeholder="Birthdate?..." required="" autofocus="" ref={birthRef} />
                 <input type="password" className={styles.modal__form__control} name="password" placeholder="Enter Password?" required="" ref={passwordRef} />
+                <input type="password" className={styles.modal__form__control} name="password-confirm" placeholder="Confrim Password" required="" ref={confirmedPasswordRef} />
                 <select className={`${styles.modal__form__control} ${styles.modal__form__options}`} name="option" id="option" required="" ref={rollRef}>
                     <option value={null}>What is your position?</option>
                     <option value="Collector">Collector</option>

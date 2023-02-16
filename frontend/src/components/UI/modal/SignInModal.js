@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import ReactDOM from "react-dom";
 import styles from './SignInModal.module.css';
 
+import useSignIn from "../../../hooks/useSignIn";
+
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../store/ui_slice";
+import { storage } from "../../../services/config";
 
 const Backdrop = props => {
     return <div className={styles.backdrop} onClick={props.onClose} />;
@@ -12,6 +15,11 @@ const Backdrop = props => {
 
 
 const Modal = props => {
+    const emailRef = useRef()
+    const passwordRef = useRef()
+
+    const [data, HandleSignInData] = useSignIn({})
+
     const dispatch = useDispatch();
 
     const signUpToggle = (e) => {
@@ -19,13 +27,21 @@ const Modal = props => {
         dispatch(uiActions.toggleSignUpUI());
         dispatch(uiActions.toggleSignInUI());
     }
-
+    const submitHandler = (e) => {
+        e.preventDefault()
+        const userData = {
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+        }
+        dispatch(uiActions.toggleLoading());
+        HandleSignInData(userData)
+    }
     return (
         <div className={styles.modal__wrapper}>
-            <form className={styles.modal__form}>
+            <form className={styles.modal__form} onSubmit={submitHandler}>
                 <h2 className={styles.modal__form__header}>Login</h2>
-                <input type="text" className={styles.modal__form__control} name="username" placeholder="Email Address" required="" autoFocus="" />
-                <input type="password" className={styles.modal__form__control} name="password" placeholder="Password" required="" />
+                <input type="text" className={styles.modal__form__control} name="username" placeholder="Email Address" required="" autoFocus="" ref={emailRef} />
+                <input type="password" className={styles.modal__form__control} name="password" placeholder="Password" required="" ref={passwordRef} />
 
                 <a href="/#">Forgot Password?</a>
 

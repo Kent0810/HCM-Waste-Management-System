@@ -1,4 +1,5 @@
 .centerDashboard__grid{
+    min-width: 100%;
     width: 100%;
     height: 100%;
     grid-area: main;

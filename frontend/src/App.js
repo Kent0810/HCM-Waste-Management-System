@@ -12,13 +12,14 @@ import SignInModal from './components/UI/modal/SignInModal';
 import SignUpModal from './components/UI/modal/SignUpModal';
 
 import Notification from './components/UI/notification/Notification';
+import LoadingModal from './components/UI/loading/loading';
 
 function App() {
   const signInUI = useSelector(state => state.ui.signInIsVisible);
   const signUpUI = useSelector(state => state.ui.signUpIsVisible);
   const isNotificationVisible = useSelector(state => state.ui.notificationVisible);
   const notification = useSelector(state => state.ui.notification);
-
+  const isLoadingVisible = useSelector(state => state.ui.isLoadingVisible)
   const dispatch = useDispatch();
   const toggleSigInUIHandler = () => {
     dispatch(uiActions.toggleSignInUI());
@@ -31,6 +32,7 @@ function App() {
   }
   return (
     <main className={styles.main}>
+      {isLoadingVisible && <LoadingModal />}
       {isNotificationVisible && <Notification onClick={toggleNotificationHandler} title={notification.title} message={notification.message} />}
       {signInUI && <SignInModal onClick={toggleSigInUIHandler} />}
       {signUpUI && <SignUpModal onClick={toggleSignUpUIHandler} />}

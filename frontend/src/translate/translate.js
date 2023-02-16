@@ -5,7 +5,7 @@ const translationEn = {
     Administration: "Administration",
     Analytics: "Analytics",
     Customer: "Customer",
-    Checkout: "Checkout",
+    Checkout: "Signout",
     Dashboard: "Dashboard",
     Hello: "Hello",
     Inbox: "Inbox",
@@ -39,8 +39,8 @@ i18n.use(initReactI18next).init({
             translation: translationVi
         }
     },
-    lng: 'vn',
-    fallbackLng: 'vn',
+    lng: 'en',
+    fallbackLng: 'en',
     interpolation: {
         escapeValue: false
     }

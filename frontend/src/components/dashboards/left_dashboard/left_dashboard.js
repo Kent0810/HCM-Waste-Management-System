@@ -15,6 +15,28 @@ import Switch from "../../UI/switch/switch";
 import useCustomTranslate from '../../../hooks/useCustomTranslate'
 import { useTranslation } from 'react-i18next'
 
+import storage from "../../../store/redux";
+import { uiActions } from "../../../store/ui_slice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../services/config";
+
+const signOutHandler = () => {
+    if (!auth.currentUser) return
+    storage.dispatch(uiActions.toggleLoading())
+    signOut(auth).then(() => {
+        storage.dispatch(uiActions.toggleLoading())
+        storage.dispatch(uiActions.toggleNotification({
+            title: "Sign Out Successful",
+            message: "See you again !"
+        }))
+    }).catch((error) => {
+        storage.dispatch(uiActions.toggleLoading())
+        storage.dispatch(uiActions.toggleNotification({
+            title: "Sign Out Failed",
+            message: "Error: " + error.message.slice(error.message.indexOf("/") + 1, error.message.indexOf(")")).toUpperCase().replace(/-/g, ' ')//regex expression
+        }))
+    })
+}
 
 const LeftDashboard = () => {
 
@@ -35,7 +57,7 @@ const LeftDashboard = () => {
                     <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineAnalytics /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Analytics")}</a></span> </div>
                     <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><FaChartBar /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Sales")}</a></span> </div>
                     <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><BsPeopleFill /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Customer")}</a></span> </div>
-                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineExitToApp /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Checkout")}</a></span> </div>
+                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineExitToApp /></i> <span className={styles.leftDashboard__body__item__text} onClick={signOutHandler}><a href="/#">{t("Checkout")}</a></span> </div>
 
                 </div>
                 <div className={styles.leftDashboard__footer}>

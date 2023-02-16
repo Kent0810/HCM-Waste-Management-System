@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import uiSlice from './ui_slice'
+
+import { dataSlice, uiSlice } from './ui_slice'
 
 const storage = configureStore({
-    reducer: { ui: uiSlice.reducer }
+    reducer: { ui: uiSlice.reducer, data: dataSlice.reducer }
 })
 
 export default storage

@@ -2,7 +2,7 @@ import styles from './right_dashboard.module.css';
 
 import { uiActions } from '../../../store/ui_slice';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { FaUserTie } from 'react-icons/fa'
 import { BsBellFill } from 'react-icons/bs'
@@ -11,7 +11,7 @@ import RightBottom from './right_bottombox/right_bottom';
 
 const RightDashboard = () => {
     const dispatch = useDispatch();
-
+    const userName = useSelector(state => state.data.user.userName)
 
     const toggleModalHandler = () => {
         dispatch(uiActions.toggleSignInUI());
@@ -26,7 +26,7 @@ const RightDashboard = () => {
 
             <div className={styles.right_dashboard__content}>
                 <div className={styles.right_dashboard__content__upperbox}>
-                    <div className={styles.right_dashboard__time}>{datetime}</div>
+                    <div className={styles.right_dashboard__time}>{userName ? userName : datetime}</div>
                     <div className={styles.right_dashboard__icon}> <BsBellFill /></div>
                     <div className={styles.right_dashboard__icon} onClick={toggleModalHandler}><FaUserTie /></div>
                 </div>

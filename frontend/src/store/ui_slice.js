@@ -2,12 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 
-const uiSlice = createSlice({
+export const uiSlice = createSlice({
     name: 'ui',
-    initialState: { signInIsVisible: false, signUpIsVisible: false, notificationVisible: false, notification: {}, userLanguage: "eng", user: '' },
+    initialState: { signInIsVisible: false, signUpIsVisible: false, notificationVisible: false, notification: {}, userLanguage: "en", isLoadingVisible: false },
     reducers: {
         toggleSignInUI(state) {
-            console.log(state.signInIsVisible)
             state.signInIsVisible = !state.signInIsVisible; //reducer a function that takes the current state and returns a new state
         },
         toggleSignUpUI(state) {
@@ -25,12 +24,23 @@ const uiSlice = createSlice({
             state.notification = action.payload
             state.notificationVisible = !state.notificationVisible
         },
-        setUserInfo(state, action) {
-            state.user = action.payload
+        toggleLoading(state) {
+            state.isLoadingVisible = !state.isLoadingVisible
         }
     }
 })
 
+export const dataSlice = createSlice({
+    name: 'data',
+    initialState: { user: {} },
+    reducers: {
+        setUser(state, action) {
+            state.user = action.payload
+        }
+    }
+})
 export const uiActions = uiSlice.actions;
 
-export default uiSlice;
+export const dataActions = dataSlice.actions;
+
+

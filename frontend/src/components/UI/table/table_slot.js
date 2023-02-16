@@ -3,6 +3,7 @@ import styles from "./table.module.css";
 const Slot = (props) => {
     return (
         <tr>
+
             <td><input type="checkbox" value={props.data.isChecked} /></td>
             <td>{props.data.id}</td>
             <td>
