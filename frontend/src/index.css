@@ -38,6 +38,18 @@
   --color-primary-700: #fbc14d;
   --color-primary-800: #fab833;
   --color-primary-900: #f6ad1b;
+
+/* CUSTOM FOR LANDING PAGE */
+  --white: #fff;
+  --black: #101010;
+  --dark: #191919;
+  --gray: rgba(1, 1, 1, 0.6);
+  --lite: rgba(255, 255, 255, 0.6);
+  --primary: linear-gradient(145deg, #f81f01, #ee076e);
+  --primary_dark: #f81f01;
+  --secondary: #154b87;
+  --default_font: 'Open Sans', sans-serif;
+  --title_font: 'Poppins', sans-serif;
 }
 
 body {
@@ -63,4 +75,38 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+@media (max-width:920px) {
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .padding_1x,
+  .padding_2x,
+  .padding_3x,
+  .padding_4x {
+    padding: 1rem;
+  }
+
+  .big {
+    font-size: 1.8em;
+  }
+
+  .medium {
+    font-size: 1.6em;
+  }
+
+  .small {
+    font-size: 1.1em;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+
+  a,
+  p,
+  .btn {
+    font-size: 12px;
+  }
 }

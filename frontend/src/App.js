@@ -1,45 +1,71 @@
-import React from 'react';
-import styles from './App.module.css';
+//react
+import React, { useEffect } from 'react';
+//end react
 
-import { useSelector, useDispatch } from 'react-redux';
-import { uiActions } from './store/ui_slice';
+//react-router-dom
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+//end react-router-dom
 
-import CenterDashboard from './components/dashboards/center_dashboard/center_dashboard';
+//components
+import HomePage from './routes/Home/HomePage';
+import Dashboards from './routes/Dashboards/Dashboards';
+import PrivateRoute from './routes/PrivateRoute/PrivateRoute';
+//end components
 
-import LeftDashboard from './components/dashboards/left_dashboard/left_dashboard';
-import RightDashboard from './components/dashboards/right_dashboard/right_dashboard';
-import SignInModal from './components/UI/modal/SignInModal';
-import SignUpModal from './components/UI/modal/SignUpModal';
+//redux
+import { dataActions, uiActions } from './store/ui_slice';
+import storage from './store/redux';
+//end redux
 
-import Notification from './components/UI/notification/Notification';
-import LoadingModal from './components/UI/loading/loading';
+//firebase
+import { doc, getDoc } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, db } from './services/config';
+//end firebase
+
+onAuthStateChanged(auth, async (user) => {
+  try {
+    if (user) {
+      const docRef = doc(db, "USERS_INFO", auth.currentUser.uid)
+      const docSnap = await getDoc(docRef)
+      if (docSnap.exists()) {
+        storage.dispatch(dataActions.setUser(docSnap.data()))
+      }
+      if (storage.getState().ui.isLoadingVisible === true) {
+        storage.dispatch(uiActions.toggleLoading()) //turn off loading screen 
+      }
+    }
+    else {
+      storage.dispatch(dataActions.setUser({}))
+    }
+  }
+  catch (error) {
+    console.log(error)
+  }
+})
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+
+  },
+  {
+    path: '/dashboards',
+    element:
+      <PrivateRoute>
+        <Dashboards />
+      </PrivateRoute>
+
+  }
+])
 
 function App() {
-  const signInUI = useSelector(state => state.ui.signInIsVisible);
-  const signUpUI = useSelector(state => state.ui.signUpIsVisible);
-  const isNotificationVisible = useSelector(state => state.ui.notificationVisible);
-  const notification = useSelector(state => state.ui.notification);
-  const isLoadingVisible = useSelector(state => state.ui.isLoadingVisible)
-  const dispatch = useDispatch();
-  const toggleSigInUIHandler = () => {
-    dispatch(uiActions.toggleSignInUI());
-  };
-  const toggleSignUpUIHandler = () => {
-    dispatch(uiActions.toggleSignUpUI())
-  }
-  const toggleNotificationHandler = () => {
-    dispatch(uiActions.toggleNotification())
-  }
+
   return (
-    <main className={styles.main}>
-      {isLoadingVisible && <LoadingModal />}
-      {isNotificationVisible && <Notification onClick={toggleNotificationHandler} title={notification.title} message={notification.message} />}
-      {signInUI && <SignInModal onClick={toggleSigInUIHandler} />}
-      {signUpUI && <SignUpModal onClick={toggleSignUpUIHandler} />}
-      <LeftDashboard />
-      <CenterDashboard />
-      <RightDashboard />
-    </main>
+    <RouterProvider router={router} >
+
+    </RouterProvider>
   );
 }
 

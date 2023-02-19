@@ -1,38 +1,16 @@
+
 import { useState } from "react";
 
+//redux
 import { useDispatch } from "react-redux";
+import { uiActions } from "../store/ui_slice";
+//end redux
 
-import { doc, setDoc, getDoc } from "firebase/firestore"
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-
+//firebase
+import { doc, setDoc } from "firebase/firestore"
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../services/config";
-
-import { uiActions, dataActions } from "../store/ui_slice";
-
-import storage from "../store/redux";
-
-
-onAuthStateChanged(auth, async (user) => {
-    try {
-        if (user) {
-            const docRef = doc(db, "USERS_INFO", auth.currentUser.uid)
-            const docSnap = await getDoc(docRef)
-            if (docSnap.exists()) {
-                storage.dispatch(dataActions.setUser(docSnap.data()))
-            }
-            if (storage.getState().ui.isLoadingVisible === true) {
-                storage.dispatch(uiActions.toggleLoading()) //turn off loading screen 
-            }
-        }
-        else {
-            storage.dispatch(dataActions.setUser({}))
-        }
-    }
-    catch (error) {
-        console.log(error)
-    }
-})
-
+//end firebase
 
 
 const useSignUp = () => {
@@ -62,15 +40,9 @@ const useSignUp = () => {
 
             await createUserWithEmailAndPassword(auth, userInputData.email, userInputData.password)
 
-            console.log(new Date(userInputData.birth).getFullYear())
             delete userInputData.password // dont push our password to database
 
             //check if form is valid
-
-
-
-
-
             await setDoc(doc(db, "USERS_INFO", auth.currentUser.uid), userInputData)
 
             dispatch(uiActions.toggleSignUpUI())

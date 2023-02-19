@@ -1,0 +1,14 @@
+.main {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 0.7fr 2fr repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+        "left main main right"
+        "left main main right"
+        "left main main right";
+    font-family: 'Varela Round', sans-serif;
+}
