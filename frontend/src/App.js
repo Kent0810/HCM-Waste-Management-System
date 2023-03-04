@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 //end react
 
 //react-router-dom
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 //end react-router-dom
 
 //components
 import HomePage from './routes/Home/HomePage';
-import Dashboards from './routes/Dashboards/Dashboards';
+import AdminDashboards from './routes/Dashboards/Dashboards_admin';
 import PrivateRoute from './routes/PrivateRoute/PrivateRoute';
 //end components
 
@@ -21,6 +21,9 @@ import storage from './store/redux';
 import { doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from './services/config';
+import ErrorPage from './routes/Error/ErrorPage';
+import EmployeesPage from './routes/Employees/EmployeesPage';
+import VehiclesPage from './routes/Vehicles/VehiclesPage';
 //end firebase
 
 onAuthStateChanged(auth, async (user) => {
@@ -37,6 +40,9 @@ onAuthStateChanged(auth, async (user) => {
     }
     else {
       storage.dispatch(dataActions.setUser({}))
+      if (storage.getState().ui.isLoadingVisible === true) {
+        storage.dispatch(uiActions.toggleLoading()) //turn off loading screen 
+      }
     }
   }
   catch (error) {
@@ -44,28 +50,20 @@ onAuthStateChanged(auth, async (user) => {
   }
 })
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomePage />,
 
-  },
-  {
-    path: '/dashboards',
-    element:
-      <PrivateRoute>
-        <Dashboards />
-      </PrivateRoute>
-
-  }
-])
 
 function App() {
 
   return (
-    <RouterProvider router={router} >
-
-    </RouterProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboards" element={(<PrivateRoute><AdminDashboards /></PrivateRoute>)} />
+        <Route path="/dashboards/employees" element={<PrivateRoute><EmployeesPage /></PrivateRoute>} />
+        <Route path="/dashboards/vehicles" element={<PrivateRoute><VehiclesPage /></PrivateRoute>} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
+    </Router>
   );
 }
 

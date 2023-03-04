@@ -1,24 +1,40 @@
 import { useEffect, useState } from 'react';
-import { auth } from '../../../services/config';
+import { auth, db } from '../../../services/config';
+import { doc, getDoc } from 'firebase/firestore'
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
 
+
+
 import storage from '../../../store/redux';
-import { uiActions } from '../../../store/ui_slice';
+import { uiActions, dataActions } from '../../../store/ui_slice';
 
 const Navigation = () => {
     const [destination, setDestination] = useState("/");
-    const clickHandler = (e) => {
+
+    const clickHandler = async (e) => {
         if (!auth.currentUser) {
+            console.log("Not logged in")
             e.preventDefault();
             storage.dispatch(uiActions.toggleNotification({ title: "Please sign in", message: "You need to sign in to access this page" }))
         }
+        else {
+            try {
+                if (auth.currentUser) {
+                    const docRef = doc(db, "USERS_INFO", auth.currentUser.uid)
+                    const docSnap = await getDoc(docRef)
+                    if (docSnap.exists()) {
+                        const user = docSnap.data();
+                        user.roll === "Admin" ? setDestination("/dashboards") : setDestination("/dashboards/user");
+                    }
+                }
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
     }
 
-    useEffect(() => {
-        if (auth.currentUser) setDestination("/dashboards");
-        else setDestination("/");
-    }, [auth.currentUser])
     return (
         <nav className={styles.nav_menu}>
             <section className={styles.flex_content}>

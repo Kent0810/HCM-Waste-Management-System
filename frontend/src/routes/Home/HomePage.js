@@ -5,17 +5,19 @@ import styles from './HomePage.module.css';
 import { uiActions } from '../../store/ui_slice';
 import { useDispatch, useSelector } from 'react-redux';
 
-
+import { Outlet } from 'react-router-dom';
 import SignInModal from '../../components/UI/modal/SignInModal';
 import SignUpModal from '../../components/UI/modal/SignUpModal';
 import LoadingModal from '../../components/UI/loading/loading';
 import Notification from '../../components/UI/notification/Notification';
 import Navigation from '../../components/UI/Navigation_Menu/Navigation';
+import { auth } from '../../services/config';
 
 
 
 
 function HomePage() {
+    const userName = useSelector(state => state.data.user.userName);
 
     const isLoadingVisible = useSelector(state => state.ui.isLoadingVisible)
     const isNotificationVisible = useSelector(state => state.ui.notificationVisible);
@@ -40,7 +42,6 @@ function HomePage() {
 
     return (
         <div className={styles.HomePage}>
-
             {signInUI && <SignInModal onClick={toggleSigInUIHandler} />}
             {signUpUI && <SignUpModal onClick={toggleSignUpUIHandler} />}
             {isLoadingVisible && <LoadingModal />}
@@ -51,7 +52,7 @@ function HomePage() {
                 <section className={styles.flex_content}>
                     <article className={styles.padding_1x}>
                         <h1 className={styles.title}>Ho Chi Minh City <br />  Waste Management System</h1>
-                        <p>A solution for Ho Chi Minh City Waste Handling System.</p>
+                        <p>{auth.currentUser ? `Welcome Back ${userName}` : "A solution for Ho Chi Minh City Waste Handling System"}</p>
                         <button className={styles.getStarted} onClick={AuthentiationMethodHandler}>Sign In Now!</button>
                     </article>
                 </section>

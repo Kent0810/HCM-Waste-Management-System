@@ -3,13 +3,13 @@ import { initReactI18next } from 'react-i18next'
 
 const translationEn = {
     Administration: "Administration",
-    Analytics: "Analytics",
-    Customer: "Customer",
+    Maps: "Maps",
+    Employees: "Employees",
     Checkout: "Signout",
     Dashboard: "Dashboard",
     Hello: "Hello",
     Inbox: "Inbox",
-    Sales: "Sales",
+    Vehicles: "Vehicles",
     Settings: "Settings",
     Profile: "Profile",
     UWC: "UWC",
@@ -17,13 +17,13 @@ const translationEn = {
 }
 const translationVi = {
     Administration: "Quản Lý",
-    Analytics: "Thông Số",
-    Customer: "Khách Hàng",
+    Maps: "Bản Đồ",
+    Employees: "Nhân Viên",
     Checkout: "Thoát",
     Dashboard: "Điều Khiển",
     Hello: "Xin Chào",
     Inbox: "Inbox",
-    Sales: "Doanh Thu",
+    Vehicles: "Phương Tiện",
     Settings: "Cài Đặt",
     Profile: "Thông Tin",
     UWC: "UWC",

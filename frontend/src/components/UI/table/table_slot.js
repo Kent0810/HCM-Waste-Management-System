@@ -13,14 +13,9 @@ const Slot = (props) => {
             </td>
             <td>{props.data.date}</td>
             <td>{props.data.amount}</td>
-            <td >
+            <td className={styles.status}>
                 <div className={props.data.status === "Complete" ? styles.td__status__green : props.data.status === "Processing" ? styles.td__status__yellow : styles.td__status__red}>
                     {props.data.status}
-                </div>
-            </td>
-            <td>
-                <div className={styles.td__btn}>
-                    {props.data.option}
                 </div>
             </td>
         </tr>

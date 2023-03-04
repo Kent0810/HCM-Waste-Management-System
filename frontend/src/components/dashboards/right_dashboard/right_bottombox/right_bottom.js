@@ -33,7 +33,7 @@ const RightBottom = () => {
     return (
         <div className={styles.bottombox__container}>
             <div className={styles.bottombox__content}>
-                <p>Available Janitor and Collector</p>
+                <p>Overview</p>
                 <div className={styles.bottombox__employees}>
                     {DUMMY_DATA.map((data) => {
                         return (

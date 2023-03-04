@@ -2,7 +2,12 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-
+.status{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 th,
 td {
     padding: 1rem 2rem;
@@ -12,7 +17,7 @@ td {
 }
 
 th {
-    
+   
     font-size: .875rem;
     color: rgb(136, 136, 136);
     font: 'Reva', sans-serif;
@@ -56,18 +61,28 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 .td__status__green{
+    display: flex;
+    justify-content: center;
+    width: 80%;
     padding: 5px 15px;
     border-radius: 10px;
     font-weight: bold;
     background-color: green;
 }
 .td__status__yellow {
+    display: flex;
+    justify-content: center;
+    width: 80%;
     padding: 5px 15px;
     border-radius: 10px;
     font-weight: bold;
     background-color: #f8b917;
 }
 .td__status__red{
+
+    display: flex;
+    justify-content: center;
+    width: 80%;
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: bold;

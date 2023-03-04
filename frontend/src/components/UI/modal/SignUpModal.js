@@ -41,7 +41,8 @@ const Modal = props => {
             roll: rollRef.current.value,
         }
         dispatch(uiActions.toggleLoading());
-        HandleSignUpData(userData)
+        await HandleSignUpData(userData)
+        dispatch(uiActions.toggleLoading());
     }
 
     const signInToggle = (e) => {

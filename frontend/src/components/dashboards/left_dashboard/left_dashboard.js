@@ -7,6 +7,7 @@ import { FaChartBar, FaUser } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdSettings } from "react-icons/io";
+import { FiTruck } from "react-icons/fi";
 //ICON END//
 import Switch from "../../UI/switch/switch";
 
@@ -19,6 +20,7 @@ import storage from "../../../store/redux";
 import { uiActions } from "../../../store/ui_slice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../services/config";
+import { Link } from 'react-router-dom'
 
 const signOutHandler = () => {
     if (!auth.currentUser) return
@@ -53,10 +55,10 @@ const LeftDashboard = () => {
                 </div>
                 <div className={styles.leftDashboard__body}>
                     <p className={styles.leftDashboard__body__title}>{t('Administration')}</p>
-                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdDashboard /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t('Dashboard')}</a></span> </div>
-                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineAnalytics /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Analytics")}</a></span> </div>
-                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><FaChartBar /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Sales")}</a></span> </div>
-                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><BsPeopleFill /></i> <span className={styles.leftDashboard__body__item__text}><a href="/#">{t("Customer")}</a></span> </div>
+                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdDashboard /></i> <span className={styles.leftDashboard__body__item__text}><Link to={"/dashboards"}>{t('Dashboard')}</Link></span> </div>
+                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineAnalytics /></i> <span className={styles.leftDashboard__body__item__text}><Link to={"/map"}>{t("Maps")}</Link></span> </div>
+                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><FiTruck /></i> <span className={styles.leftDashboard__body__item__text}><Link to={"/dashboards/vehicles"}>{t("Vehicles")}</Link></span> </div>
+                    <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><BsPeopleFill /></i> <span className={styles.leftDashboard__body__item__text}><Link to={"/dashboards/employees"}>{t("Employees")}</Link></span> </div>
                     <div className={styles.leftDashboard__body__item}> <i className={styles.leftDashboard__body__item__icon}><MdOutlineExitToApp /></i> <span className={styles.leftDashboard__body__item__text} onClick={signOutHandler}><a href="/#">{t("Checkout")}</a></span> </div>
 
                 </div>

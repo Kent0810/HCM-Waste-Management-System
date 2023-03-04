@@ -6,7 +6,7 @@ const Bottombox = () => {
     return (
         <div className={styles.bottombox__container}>
             <div className={styles.bottombox__content}>
-                <p>Latest Transaction</p>
+                <p>Current Tasks</p>
                 <Table />
             </div>
         </div>

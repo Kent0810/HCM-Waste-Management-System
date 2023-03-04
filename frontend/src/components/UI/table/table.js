@@ -56,7 +56,6 @@ const Table = (props) => {
                 <th>Date</th>
                 <th>Amount</th>
                 <th>Status</th>
-                <th>Option</th>
             </tr>
             {DUMMY_DATA.map((data) => {
                 return (

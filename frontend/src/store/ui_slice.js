@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const uiSlice = createSlice({
     name: 'ui',
-    initialState: { signInIsVisible: false, signUpIsVisible: false, notificationVisible: false, notification: {}, userLanguage: "en", isLoadingVisible: false },
+    initialState: { signInIsVisible: false, signUpIsVisible: false, notificationVisible: false, notification: {}, userLanguage: "en", isLoadingVisible: false, isMCPVisible: false },
     reducers: {
         toggleSignInUI(state) {
             state.signInIsVisible = !state.signInIsVisible; //reducer a function that takes the current state and returns a new state
@@ -26,6 +26,9 @@ export const uiSlice = createSlice({
         },
         toggleLoading(state) {
             state.isLoadingVisible = !state.isLoadingVisible
+        },
+        toggleMCPUI(state) {
+            state.isMCPVisible = !state.isMCPVisible
         }
     }
 })

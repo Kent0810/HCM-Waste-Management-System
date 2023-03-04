@@ -4,7 +4,7 @@ import styles from './Dashboards.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from '../../store/ui_slice';
 //end redux
-
+import { Outlet } from 'react-router-dom';
 
 
 //components
@@ -16,7 +16,7 @@ import LoadingModal from '../../components/UI/loading/loading';
 
 //end components
 
-const Dashboards = () => {
+const AdminDashboards = () => {
     const dispatch = useDispatch()
 
     const isNotificationVisible = useSelector(state => state.ui.notificationVisible);
@@ -38,4 +38,4 @@ const Dashboards = () => {
         </main>
     )
 }
-export default Dashboards;
+export default AdminDashboards;

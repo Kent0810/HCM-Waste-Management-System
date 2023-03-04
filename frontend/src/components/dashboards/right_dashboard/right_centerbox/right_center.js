@@ -2,11 +2,22 @@ import styles from './right_center.module.css';
 
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiActions } from '../../../../store/ui_slice';
+import MCPComponent from '../../../MCP_Overview/MCP_component';
 
 const RightCenter = () => {
+    const dispatch = useDispatch()
+    const isMCPVisible = useSelector(state => state.ui.isMCPVisible)
+
+    const onTriggerMCP = () => {
+        dispatch(uiActions.toggleMCPUI())
+    }
+
     const percentage = 75;
     return (
         <div className={styles.rightCenter__container}>
+            {isMCPVisible && <MCPComponent onClick={onTriggerMCP} />}
             <div className={styles.rightCenter__content}>
                 <div><h2>Progress Goal</h2></div>
                 <div className={styles.rightCenter__content__progessbar}>
@@ -33,8 +44,8 @@ const RightCenter = () => {
 
                     />
                 </div>
-                <div><p>You have 75 tasks done out of 100</p></div>
-                <button className={styles.rightCenter__content__btn}>View All</button>
+                <div><p>You have {percentage} MCP needed to be done out of 100</p></div>
+                <button className={styles.rightCenter__content__btn} onClick={onTriggerMCP}>View All</button>
             </div>
         </div>
     )

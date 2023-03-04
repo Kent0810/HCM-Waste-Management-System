@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 //redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../store/ui_slice";
 //end redux
 
@@ -15,7 +15,9 @@ import { auth, db } from "../services/config";
 
 const useSignUp = () => {
     const [userData, setUserData] = useState({})
+
     const dispatch = useDispatch()
+    const isLoadingVisible = useSelector(state => state.ui.isLoadingVisible)
 
     async function HandleSignUpData(userInputData) {
         try {
@@ -57,7 +59,11 @@ const useSignUp = () => {
                 title: "Sign Up Failed",
                 message: "Error: " + error.message.slice(error.message.indexOf("/") + 1, error.message.indexOf(")")).toUpperCase().replace(/-/g, ' ')//regex expression
             }))
-            dispatch(uiActions.toggleLoading())
+
+            if (isLoadingVisible) {
+                dispatch(uiActions.toggleLoading())
+            }
+
         }
         setUserData(userInputData)
     }
