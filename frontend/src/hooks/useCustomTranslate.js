@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import i18n from '../translate/translate';
+import i18n from '../assests/translate/translate';
 
 const useCustomTranslate = () => {
     const currentLanguage = useSelector(state => state.ui.userLanguage)

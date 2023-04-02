@@ -2,7 +2,7 @@ import styles from './MCP_component.module.css';
 import ReactDOM from "react-dom";
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import Skillbar from '../vehile_page/Skill_bar/skill_bar';
+import Skillbar from '../UI/Skill_bar/skill_bar';
 
 const Backdrop = props => {
     return <div className={styles.backdrop} onClick={props.onClose} />;

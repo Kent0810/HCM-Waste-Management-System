@@ -1,5 +1,5 @@
 //react
-import React, { useEffect } from 'react';
+import React from 'react';
 //end react
 
 //react-router-dom
@@ -7,9 +7,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 //end react-router-dom
 
 //components
-import HomePage from './routes/Home/HomePage';
-import AdminDashboards from './routes/Dashboards/Dashboards_admin';
-import PrivateRoute from './routes/PrivateRoute/PrivateRoute';
+import HomePage from './routes/Home_Route/HomePage';
+import ErrorPage from './routes/Error_Route/ErrorPage';
+import EmployeesPage from './routes/Employees_Route/EmployeesPage';
+import VehiclesPage from './routes/Vehicles_Route/VehiclesPage';
+
+import AdminDashboards from './routes/Dashboard_Route/Dashboards_admin';
+import PrivateRoute from './routes/Private_Route/PrivateRoute';
 //end components
 
 //redux
@@ -21,9 +25,6 @@ import storage from './store/redux';
 import { doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from './services/config';
-import ErrorPage from './routes/Error/ErrorPage';
-import EmployeesPage from './routes/Employees/EmployeesPage';
-import VehiclesPage from './routes/Vehicles/VehiclesPage';
 //end firebase
 
 onAuthStateChanged(auth, async (user) => {

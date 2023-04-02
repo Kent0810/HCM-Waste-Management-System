@@ -1,5 +1,5 @@
 import styles from './vehicle_card.module.css';
-import Skillbar from '../../vehile_page/Skill_bar/skill_bar';
+import Skillbar from '../Skill_bar/skill_bar';
 const VehicleCard = (props) => {
     return (
         <div className={styles.vehicle_card}>
