@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from './center_box.module.css';
 import { FcRating } from "react-icons/fc";
-import Card from '../../../../../components/UI/card/card'
+import Card from '../../../../../components/UI/Card_Collections/card/card'
 
 import { useTranslation } from 'react-i18next';
 import useCustomTranslate from "../../../../../hooks/useCustomTranslate";

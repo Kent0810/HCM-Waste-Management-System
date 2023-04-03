@@ -10,8 +10,8 @@ import { uiActions } from '../../store/ui_slice';
 import CenterDashboard from './Dashboard_Components/center_dashboard/center_dashboard';
 import LeftDashboard from './Dashboard_Components/left_dashboard/left_dashboard';
 import RightDashboard from './Dashboard_Components/right_dashboard/right_dashboard';
-import Notification from '../../components/UI/notification/Notification';
-import LoadingModal from '../../components/UI/loading/loading';
+import Notification from '../../components/UI/Others/notification/Notification';
+import LoadingModal from '../../components/UI/Others/loading/loading';
 
 //end components
 

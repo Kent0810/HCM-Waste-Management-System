@@ -1,4 +1,4 @@
-import BottomSlot from '../../../../../components/UI/bottom_slot/bottom_slot'
+import BottomSlot from '../../../../../components/UI/Employee_Status/Employee_Status'
 import styles from './right_bottom.module.css'
 const DUMMY_DATA = [
     {

@@ -1,9 +1,9 @@
 import styles from './switch.module.css';
 
-import vie from '../../../assests/vietnam.png'
-import eng from '../../../assests/united-kingdom.png'
+import vie from '../../../../assests/vietnam.png'
+import eng from '../../../../assests/united-kingdom.png'
 
-import { uiActions } from '../../../store/ui_slice';
+import { uiActions } from '../../../../store/ui_slice';
 import { useDispatch } from 'react-redux';
 
 const Switch = () => {

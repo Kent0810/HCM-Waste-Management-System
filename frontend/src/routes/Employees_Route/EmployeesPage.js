@@ -1,5 +1,5 @@
 import EmployeeCenterboard from './Employee_Components/employee_centerboard/employee_centerboard';
-import EmployeeLeftboard from '../../components/Left_Dashboard/Left_Dashboard';
+import EmployeeLeftboard from '../../components/Side_Board/Side_Board';
 
 import styles from './EmployeesPage.module.css';
 const DUMMY_DATA = [

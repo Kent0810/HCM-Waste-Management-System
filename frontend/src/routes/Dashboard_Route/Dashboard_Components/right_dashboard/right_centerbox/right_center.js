@@ -4,7 +4,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../../../../store/ui_slice';
-import MCPComponent from '../../../../../components/MCP_Overview/MCP_component';
+import MCPComponent from '../MCP_Overview/MCP_component';
 
 const RightCenter = () => {
     const dispatch = useDispatch()

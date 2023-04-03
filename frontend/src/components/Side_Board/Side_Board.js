@@ -1,4 +1,4 @@
-import styles from './Left_Dashboard.module.css';
+import styles from './Side_Board.module.css';
 import logo from '../../assests/logo.png'
 
 //ICON//
@@ -10,7 +10,7 @@ import { IoMdSettings } from "react-icons/io";
 import { FiTruck } from "react-icons/fi";
 //ICON END//
 
-import Switch from "../UI/switch/switch";
+import Switch from "../UI/Others/switch/switch";
 //i18next//
 import useCustomTranslate from '../../hooks/useCustomTranslate'
 import { useTranslation } from 'react-i18next'
@@ -50,7 +50,7 @@ const EmployeeLeftboard = () => {
         <div className={styles.leftboard_grid}>
             <div className={styles.leftboard_grid__item}>
                 <div className={styles.leftboard__header}>
-                    <img src={logo} className={styles.leftboard__header__logo}></img>
+                    <img src={logo} className={styles.leftboard__header__logo} alt='Logo'></img>
                     <h1 className={styles.leftboard__header__title}>UWC</h1>
                 </div>
                 <div className={styles.leftboard__body}>

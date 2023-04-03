@@ -1,5 +1,5 @@
 
-import EmployeeLeftboard from '../../components/Left_Dashboard/Left_Dashboard';
+import EmployeeLeftboard from '../../components/Side_Board/Side_Board';
 import VehicleCenterBoard from '../../routes/Vehicles_Route/Vehile_Components/vehicle_centerboard/vehicle_centerboard';
 import styles from './VehiclesPage.module.css';
 import Truck from '../../assests/trucks.png'

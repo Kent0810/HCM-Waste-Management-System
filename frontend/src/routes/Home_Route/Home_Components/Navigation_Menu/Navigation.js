@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { auth, db } from '../../../services/config';
+import { useState } from 'react';
+import { auth, db } from '../../../../services/config';
 import { doc, getDoc } from 'firebase/firestore'
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
 
 
 
-import storage from '../../../store/redux';
-import { uiActions, dataActions } from '../../../store/ui_slice';
+import storage from '../../../../store/redux';
+import { uiActions } from '../../../../store/ui_slice';
 
 const Navigation = () => {
     const [destination, setDestination] = useState("/");

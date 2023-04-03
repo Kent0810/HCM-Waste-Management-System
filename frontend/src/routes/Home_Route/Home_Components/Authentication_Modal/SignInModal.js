@@ -3,10 +3,10 @@ import React, { useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from './SignInModal.module.css';
 
-import useSignIn from "../../../hooks/useSignIn";
+import useSignIn from "../../../../hooks/useSignIn";
 
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../../store/ui_slice";
+import { uiActions } from "../../../../store/ui_slice";
 
 const Backdrop = props => {
     return <div className={styles.backdrop} onClick={props.onClose} />;

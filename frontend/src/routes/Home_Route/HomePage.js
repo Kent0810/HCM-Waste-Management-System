@@ -1,16 +1,14 @@
-import { useEffect } from 'react';
 
 import styles from './HomePage.module.css';
 
 import { uiActions } from '../../store/ui_slice';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Outlet } from 'react-router-dom';
-import SignInModal from '../../components/UI/modal/SignInModal';
-import SignUpModal from '../../components/UI/modal/SignUpModal';
-import LoadingModal from '../../components/UI/loading/loading';
-import Notification from '../../components/UI/notification/Notification';
-import Navigation from '../../components/UI/Navigation_Menu/Navigation';
+import SignInModal from './Home_Components/Authentication_Modal/SignInModal';
+import SignUpModal from './Home_Components/Authentication_Modal/SignUpModal';
+import LoadingModal from '../../components/UI/Others/loading/loading';
+import Notification from '../../components/UI/Others/notification/Notification';
+import Navigation from './Home_Components/Navigation_Menu/Navigation';
 import { auth } from '../../services/config';
 
 

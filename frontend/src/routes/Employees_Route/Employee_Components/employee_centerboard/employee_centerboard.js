@@ -1,4 +1,4 @@
-import EmployeeCard from '../../../../components/UI/employee_ui/employee_card/employee_card'
+import EmployeeCard from '../../../../components/UI/Card_Collections/Employee_Card/employee_card'
 import styles from './employee_centerboard.module.css'
 
 
@@ -18,6 +18,9 @@ const EmployeeCenterboard = ({ DUMMY_DATA }) => {
                             <EmployeeCard name={item.name} title={item.title} workTime={item.workTime} situation={item.situation} />
                         )
                     }
+                    else{
+                        return <></>;
+                    }
                 })}
             </div>
             <div className={styles.centerboard_grid__header}>
@@ -32,6 +35,9 @@ const EmployeeCenterboard = ({ DUMMY_DATA }) => {
                         return (
                             <EmployeeCard name={item.name} title={item.title} workTime={item.workTime} situation={item.situation} />
                         )
+                    }
+                    else{
+                        return <></>;
                     }
                 })}
             </div>

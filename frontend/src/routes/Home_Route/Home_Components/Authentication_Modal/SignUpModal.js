@@ -4,14 +4,14 @@ import ReactDOM from "react-dom";
 import styles from './SignUpModal.module.css';
 
 //custom hooks
-import useSignUp from "../../../hooks/useSignUp";
+import useSignUp from "../../../../hooks/useSignUp";
 
 
 import { useRef } from "react";
 
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../../store/ui_slice";
-import storage from "../../../store/redux";
+import { uiActions } from "../../../../store/ui_slice";
+
 
 const Backdrop = props => {
     return <div className={styles.backdrop} onClick={props.onClose} />;

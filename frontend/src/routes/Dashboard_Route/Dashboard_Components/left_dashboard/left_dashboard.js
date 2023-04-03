@@ -9,7 +9,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { IoMdSettings } from "react-icons/io";
 import { FiTruck } from "react-icons/fi";
 //ICON END//
-import Switch from "../../../../components/UI/switch/switch";
+import Switch from "../../../../components/UI/Others/switch/switch";
 
 
 //i18next//

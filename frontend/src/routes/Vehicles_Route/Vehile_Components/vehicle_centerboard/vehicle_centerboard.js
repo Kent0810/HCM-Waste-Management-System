@@ -1,4 +1,4 @@
-import VehicleCard from '../../../../components/UI/Vehicle_Card/vehicle_card';
+import VehicleCard from '../../../../components/UI/Card_Collections/Vehicle_Card/vehicle_card';
 import styles from './vehicle_centerboard.module.css'
 const VehicleCenterBoard = ({ DUMMY_DATA }) => {
     return (

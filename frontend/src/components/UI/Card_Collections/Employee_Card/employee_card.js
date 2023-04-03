@@ -6,7 +6,7 @@ const EmployeeCard = (props) => {
 
         <div className={styles.card}>
             <div className={styles.card__img}>
-                <img className={styles.card__img_preview} src={mrCollector} alt="Image name" />
+                <img className={styles.card__img_preview} src={mrCollector} alt="Employee_Avatar" />
                 <div className={styles.card__img_overlay}><span className={`${styles.badge} ${styles.badge_pill} ${styles.badge_danger}`}>Portrait</span> </div>
             </div>
             <div className={styles.card__content}>

@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../../../../../components/UI/table/table";
+import Table from "../../../../../components/UI/Others/table/table";
 import styles from "./bottom_box.module.css";
 
 const Bottombox = () => {

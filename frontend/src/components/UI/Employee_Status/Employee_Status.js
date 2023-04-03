@@ -1,7 +1,7 @@
-import styles from './bottom_slot.module.css'
+import styles from './Employee_Status.module.css'
 
 import test from '../../../assests/test.webp'
-const BottomSlot = (props) => {
+const Employee_Status = (props) => {
     return (
         <div className={styles.bottomSlot__container}>
             <div className={styles.bottomSlot__profile}>
@@ -17,4 +17,4 @@ const BottomSlot = (props) => {
         </div>
     )
 }
-export default BottomSlot;
+export default Employee_Status;
