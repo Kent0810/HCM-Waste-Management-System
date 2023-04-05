@@ -12,6 +12,7 @@ import ErrorPage from './routes/Error_Route/ErrorPage';
 import EmployeesPage from './routes/Employees_Route/EmployeesPage';
 import VehiclesPage from './routes/Vehicles_Route/VehiclesPage';
 
+import MessengerRoute from './routes/Messenger_Route/Messenger_Route';
 import AdminDashboards from './routes/Dashboard_Route/Dashboards_admin';
 import PrivateRoute from './routes/Private_Route/PrivateRoute';
 //end components
@@ -62,6 +63,7 @@ function App() {
         <Route path="/dashboards" element={(<PrivateRoute><AdminDashboards /></PrivateRoute>)} />
         <Route path="/dashboards/employees" element={<PrivateRoute><EmployeesPage /></PrivateRoute>} />
         <Route path="/dashboards/vehicles" element={<PrivateRoute><VehiclesPage /></PrivateRoute>} />
+        <Route path="/dashboards/messengers" element={<PrivateRoute><MessengerRoute /></PrivateRoute>} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

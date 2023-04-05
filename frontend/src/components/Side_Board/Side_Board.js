@@ -40,7 +40,7 @@ const signOutHandler = () => {
 }
 
 
-const EmployeeLeftboard = () => {
+const SideBar = () => {
     useCustomTranslate()
 
     const { t } = useTranslation()
@@ -65,7 +65,7 @@ const EmployeeLeftboard = () => {
                 <div className={styles.leftboard__footer}>
                     <p className={styles.leftboard__footer__title}>{t("Settings")}</p>
                     <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><FaUser /></i> <span className={styles.leftboard__footer__item__text}><a href="/#">{t("Profile")}</a></span> </div>
-                    <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><AiOutlineMail /></i> <span className={styles.leftboard__footer__item__text}><a href="/#">{t("Inbox")}</a></span> </div>
+                    <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><AiOutlineMail /></i> <span className={styles.leftboard__footer__item__text}><Link to="/dashboards/messengers">{t("Message")}</Link></span> </div>
                     <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><IoMdSettings /></i> <span className={styles.leftboard__footer__item__text}><a href="/#">{t("Settings")}</a></span> </div>
                 </div>
                 <Switch />
@@ -73,4 +73,4 @@ const EmployeeLeftboard = () => {
         </div>
     )
 }
-export default EmployeeLeftboard;
+export default SideBar;

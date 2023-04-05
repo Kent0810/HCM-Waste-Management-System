@@ -1,5 +1,5 @@
 import EmployeeCenterboard from './Employee_Components/employee_centerboard/employee_centerboard';
-import EmployeeLeftboard from '../../components/Side_Board/Side_Board';
+import SideBar from '../../components/Side_Board/Side_Board';
 
 import styles from './EmployeesPage.module.css';
 const DUMMY_DATA = [
@@ -62,7 +62,7 @@ const DUMMY_DATA = [
 const EmployeesPage = (props) => {
     return (
         <main className={styles.employee__main}>
-            <EmployeeLeftboard />
+            <SideBar />
             <EmployeeCenterboard DUMMY_DATA={DUMMY_DATA} />
         </main>
     )

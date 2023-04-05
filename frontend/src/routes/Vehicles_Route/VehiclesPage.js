@@ -1,5 +1,5 @@
 
-import EmployeeLeftboard from '../../components/Side_Board/Side_Board';
+import SideBar from '../../components/Side_Board/Side_Board';
 import VehicleCenterBoard from '../../routes/Vehicles_Route/Vehile_Components/vehicle_centerboard/vehicle_centerboard';
 import styles from './VehiclesPage.module.css';
 import Truck from '../../assests/trucks.png'
@@ -71,7 +71,7 @@ const DUMMY_DATA = [
 const VehiclesPage = (props) => {
     return (
         <main className={styles.VehiclesPage__main}>
-            <EmployeeLeftboard />
+            <SideBar />
             <VehicleCenterBoard DUMMY_DATA={DUMMY_DATA} />
         </main>
     )

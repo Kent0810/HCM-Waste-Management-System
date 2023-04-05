@@ -22,7 +22,7 @@ const translationVi = {
     Checkout: "Thoát",
     Dashboard: "Điều Khiển",
     Hello: "Xin Chào",
-    Inbox: "Inbox",
+    Message: "Message",
     Vehicles: "Phương Tiện",
     Settings: "Cài Đặt",
     Profile: "Thông Tin",
