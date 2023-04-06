@@ -9,7 +9,6 @@ import Switch from "../../components/UI/Others/switch/switch";
 
 import { Link } from "react-router-dom";
 
-import Avatar from '../../assests/mrCollector.jpg'
 import MessengerApp from "./Messenger_Main/Messenger_App";
 //End Components
 

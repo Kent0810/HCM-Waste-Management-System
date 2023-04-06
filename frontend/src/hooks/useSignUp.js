@@ -43,7 +43,7 @@ const useSignUp = () => {
             await createUserWithEmailAndPassword(auth, userInputData.email, userInputData.password)
 
             delete userInputData.password // dont push our password to database
-
+            delete userInputData.confirmedPassword
             //check if form is valid
             await setDoc(doc(db, "USERS_INFO", auth.currentUser.uid), userInputData)
 

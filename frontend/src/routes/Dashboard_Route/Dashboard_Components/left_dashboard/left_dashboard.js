@@ -64,7 +64,7 @@ const LeftDashboard = () => {
                 </div>
                 <div className={styles.leftDashboard__footer}>
                     <p className={styles.leftDashboard__footer__title}>{t("Settings")}</p>
-                    <div className={styles.leftDashboard__footer__item}> <i className={styles.leftDashboard__footer__item__icon}><FaUser /></i> <span className={styles.leftDashboard__footer__item__text}><a href="/#">{t("Profile")}</a></span> </div>
+                    <div className={styles.leftDashboard__footer__item}> <i className={styles.leftDashboard__footer__item__icon}><FaUser /></i> <span className={styles.leftDashboard__footer__item__text}><Link to="/dashboards/profile">{t("Profile")}</Link></span> </div>
                     <div className={styles.leftDashboard__footer__item}> <i className={styles.leftDashboard__footer__item__icon}><AiOutlineMail /></i> <span className={styles.leftDashboard__footer__item__text}><Link to="/dashboards/messengers">{t("Message")}</Link></span> </div>
                     <div className={styles.leftDashboard__footer__item}> <i className={styles.leftDashboard__footer__item__icon}><IoMdSettings /></i> <span className={styles.leftDashboard__footer__item__text}><a href="/#">{t("Settings")}</a></span> </div>
                 </div>
