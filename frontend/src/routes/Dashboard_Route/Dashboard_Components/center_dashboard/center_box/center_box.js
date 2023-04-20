@@ -25,8 +25,8 @@ const Centerbox = () => {
                     <h1>{t("Hello")} {user ? user : "User"} <span><FcRating /></span></h1>
                 </div>
                 <div className={styles.centerbox__content__description}>
-                    <Card title="Current Location" description="Ho Chi Minh City" />
-                    <Card title="Destination" description="Da Nang" />
+                    <Card title="Total Trucks" description="62" />
+                    <Card title="Total MCPs" description="276" />
                 </div>
             </div>
         </div>

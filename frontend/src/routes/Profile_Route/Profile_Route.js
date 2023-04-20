@@ -3,7 +3,7 @@ import styles from './Profile_Route.module.css';
 import { IoMdArrowBack } from "react-icons/io";
 import SearchBar from '../../components/UI/Bar_Collections/searchbar/searchbar';
 import Switch from '../../components/UI/Others/switch/switch';
-import UserModal from '../../components/UI/Modal/User_Modal/User_Modal';
+import ProfileModal from '../../components/UI/Modal/Profile_Modal/Profile_Modal';
 
 const ProfileRoute = () => {
     return (
@@ -11,7 +11,7 @@ const ProfileRoute = () => {
             <header className={styles.Profile__header}>
                 <div className={styles.logo_section}>
                     <Link to={"/dashboards"} className={styles.logo} >
-                        <IoMdArrowBack size={40} color="#3944BC" />
+                        <IoMdArrowBack size={40} color="#f9690E" />
                     </Link>
                 </div>
                 <div className={styles.Profile__header__center}>
@@ -19,13 +19,10 @@ const ProfileRoute = () => {
                 </div>
                 <div className={styles.Profile__header__user}>
                     <Switch />
-                    <div className={styles.avatar}>
-
-                    </div>
                 </div>
             </header>
             <main className={styles.Profile__main}>
-                <UserModal />
+                <ProfileModal />
             </main>
         </div>
     );

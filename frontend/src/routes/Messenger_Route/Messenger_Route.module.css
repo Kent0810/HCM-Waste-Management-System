@@ -6,7 +6,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: 0.6fr 2fr 0.6fr;
-    grid-template-rows: 0.3fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
     font-family: 'Varela Round', sans-serif;
 }
 .route__header{

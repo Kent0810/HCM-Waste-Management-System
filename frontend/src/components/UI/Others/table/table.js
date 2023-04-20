@@ -20,7 +20,7 @@ const DUMMY_DATA = [
         location: "District 4",
         date: "12/01/2023",
         amount: "72",
-        status: "Failed",
+        status: "Full",
         option: "Detail"
     },
     {

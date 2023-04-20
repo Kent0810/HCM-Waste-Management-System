@@ -36,6 +36,14 @@ const DUMMY_DATA = [
     {
         name: "Nguyen Van G",
         latest: "Hello"
+    },
+    {
+        name: "Nguyen Van H",
+        latest: "Hello"
+    },
+    {
+        name: "Nguyen Van I",
+        latest: "Hello"
     }
 ]
 

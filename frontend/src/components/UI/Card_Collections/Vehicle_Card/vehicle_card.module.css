@@ -6,15 +6,11 @@
     align-items: left;
     width: 100%;
     height: 100%;
-    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 3px #525252;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-}
-.vehicle_card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 2px 5px #4e4e4e;
+    padding: 1rem;
 }
 .vehicle_card__img{
     width: 100%;
@@ -44,7 +40,14 @@
 .btn{
     text-align: center;
     background: rgb(199, 28, 28);
-    padding: 20px 0;
+    padding: 10px 0;
+    transition: transform 100ms ease-in;
+    border-radius: 0.5rem;
+
+}
+.btn:hover{
+    transform: scale(1.1);
+
 }
 .vehicle_card__info{
     color: white;

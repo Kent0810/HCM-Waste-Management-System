@@ -6,7 +6,6 @@ import { MdDashboard, MdOutlineAnalytics, MdOutlineExitToApp } from "react-icons
 import { FaUser } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
-import { IoMdSettings } from "react-icons/io";
 import { FiTruck } from "react-icons/fi";
 //ICON END//
 
@@ -66,7 +65,6 @@ const SideBar = () => {
                     <p className={styles.leftboard__footer__title}>{t("Settings")}</p>
                     <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><FaUser /></i> <span className={styles.leftboard__footer__item__text}><Link to="/dashboards/profile">{t("Profile")}</Link></span> </div>
                     <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><AiOutlineMail /></i> <span className={styles.leftboard__footer__item__text}><Link to="/dashboards/messengers">{t("Message")}</Link></span> </div>
-                    <div className={styles.leftboard__footer__item}> <i className={styles.leftboard__footer__item__icon}><IoMdSettings /></i> <span className={styles.leftboard__footer__item__text}><a href="/#">{t("Settings")}</a></span> </div>
                 </div>
                 <Switch />
             </div>

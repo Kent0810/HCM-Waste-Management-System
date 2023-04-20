@@ -41,8 +41,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 50%;
+    justify-content: space-between;
+    height: 60%;
 }
 
 .leftboard__body__item {
