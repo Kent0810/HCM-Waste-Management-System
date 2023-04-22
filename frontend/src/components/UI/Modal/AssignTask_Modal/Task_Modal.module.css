@@ -66,3 +66,13 @@
     color: #3498db;
     border: 1px solid #3498db;
 }
+.modal__form__label{
+    width: 80%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: #d1d1d2;
+    font-weight: 500;
+}

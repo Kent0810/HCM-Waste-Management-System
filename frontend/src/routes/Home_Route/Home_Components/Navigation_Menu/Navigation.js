@@ -25,7 +25,7 @@ const Navigation = () => {
                     const docSnap = await getDoc(docRef)
                     if (docSnap.exists()) {
                         const user = docSnap.data();
-                        user.roll === "Admin" ? setDestination("/dashboards") : setDestination("/dashboards/user");
+                        user.role === "Admin" ? setDestination("/dashboards") : setDestination("/dashboards");
                     }
                 }
             }

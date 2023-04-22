@@ -6,6 +6,13 @@ import Truck from '../../assests/trucks.png'
 import TaskModal from '../../components/UI/Modal/AssignTask_Modal/Task_Modal';
 
 import { useSelector } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui_slice';
+import Notification from '../../components/UI/Others/notification/Notification'
+import LoadingModal from '../../components/UI/Others/loading/loading';
+
+
 const DUMMY_DATA = [
     {
         id: 1,
@@ -82,9 +89,19 @@ const DUMMY_DATA = [
 
 const VehiclesPage = (props) => {
     const isAssigningTruck = useSelector(state => state.ui.isAssigningTruckVisible);
+    const isNotificationVisible = useSelector(state => state.ui.notificationVisible);
+    const isLoadingVisible = useSelector(state => state.ui.isLoadingVisible);
+    const dispatch = useDispatch();
+    const clickHandler = () => {
+        dispatch(uiActions.toggleNotification());
+    }
+
     return (
         <main className={styles.VehiclesPage__main}>
             {isAssigningTruck && <TaskModal />}
+            {isNotificationVisible && <Notification title={"Assign Successful"} message={"Your Employee Will Soon Get The Location Of The Truck !"} onClick={clickHandler}/>}
+            {isLoadingVisible && <LoadingModal />}
+
             <SideBar />
             <VehicleCenterBoard DUMMY_DATA={DUMMY_DATA} />
         </main>

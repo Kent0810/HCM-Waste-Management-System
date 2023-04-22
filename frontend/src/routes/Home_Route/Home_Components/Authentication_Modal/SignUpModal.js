@@ -25,7 +25,7 @@ const Modal = props => {
     const passwordRef = useRef()
     const confirmedPasswordRef = useRef()
     const birthRef = useRef()
-    const rollRef = useRef()
+    const roleRef = useRef()
 
     const [data, HandleSignUpData] = useSignUp({})
 
@@ -38,7 +38,7 @@ const Modal = props => {
             password: passwordRef.current.value,
             confirmedPassword: confirmedPasswordRef.current.value,
             birth: birthRef.current.value,
-            roll: rollRef.current.value,
+            role: roleRef.current.value,
         }
         dispatch(uiActions.toggleLoading());
         await HandleSignUpData(userData)
@@ -60,7 +60,7 @@ const Modal = props => {
                 <input type="date" className={`${styles.modal__form__control} ${styles.modal__form__date}`} name="birthday" placeholder="Birthdate?..." required="" autofocus="" ref={birthRef} />
                 <input type="password" className={styles.modal__form__control} name="password" placeholder="Enter Password?" required="" ref={passwordRef} />
                 <input type="password" className={styles.modal__form__control} name="password-confirm" placeholder="Confrim Password" required="" ref={confirmedPasswordRef} />
-                <select className={`${styles.modal__form__control} ${styles.modal__form__options}`} name="option" id="option" required="" ref={rollRef}>
+                <select className={`${styles.modal__form__control} ${styles.modal__form__options}`} name="option" id="option" required="" ref={roleRef}>
                     <option value={null}>What is your position?</option>
                     <option value="Collector">Collector</option>
                     <option value="Janitor">Janitor</option>

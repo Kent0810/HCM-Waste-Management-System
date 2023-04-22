@@ -26,6 +26,7 @@ import storage from './store/redux';
 import { doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from './services/config';
+import MapPage from './routes/Map_Route/map_dashboard/map_dashboard';
 //end firebase
 
 onAuthStateChanged(auth, async (user) => {
@@ -61,10 +62,12 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboards" element={(<PrivateRoute><AdminDashboards /></PrivateRoute>)} />
+        <Route path="/dashboards/map" element={<PrivateRoute><MapPage /></PrivateRoute>} />
         <Route path="/dashboards/employees" element={<PrivateRoute><EmployeesPage /></PrivateRoute>} />
         <Route path="/dashboards/vehicles" element={<PrivateRoute><VehiclesPage /></PrivateRoute>} />
         <Route path="/dashboards/messengers" element={<PrivateRoute><MessengerRoute /></PrivateRoute>} />
         <Route path="/dashboards/profile" element={<PrivateRoute><ProfileRoute /></PrivateRoute>} />
+
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

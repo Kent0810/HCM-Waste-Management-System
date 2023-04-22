@@ -2,7 +2,7 @@ import EmployeeCard from '../../../../components/UI/Card_Collections/Employee_Ca
 import styles from './employee_centerboard.module.css'
 
 
-const EmployeeCenterboard = ({ DUMMY_DATA }) => {
+const EmployeeCenterboard = (props) => {
     return (
         <div className={styles.centerboard_grid}>
             <div className={styles.centerboard_grid__header}>
@@ -12,10 +12,10 @@ const EmployeeCenterboard = ({ DUMMY_DATA }) => {
                 </div>
             </div>
             <div className={styles.centerboard_grid__item}>
-                {DUMMY_DATA.map((item) => {
-                    if (item.title === 'Janitor') {
+                {props.users.map((user) => {
+                    if (user.role === 'Janitor') {
                         return (
-                            <EmployeeCard name={item.name} title={item.title} workTime={item.workTime} situation={item.situation} />
+                            <EmployeeCard name={user.userName} role={user.role} />
                         )
                     }
                     else{
@@ -30,10 +30,10 @@ const EmployeeCenterboard = ({ DUMMY_DATA }) => {
                 </div>
             </div>
             <div className={styles.centerboard_grid__item}>
-                {DUMMY_DATA.map((item) => {
-                    if (item.title === 'Collector') {
+                {props.users.map((user) => {
+                    if (user.role === 'Collector') {
                         return (
-                            <EmployeeCard name={item.name} title={item.title} workTime={item.workTime} situation={item.situation} />
+                            <EmployeeCard name={user.userName} role={user.role} />
                         )
                     }
                     else{

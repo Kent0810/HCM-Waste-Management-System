@@ -20,17 +20,17 @@ const EmployeeCard = (props) => {
             <div className={styles.card__content}>
                 <div className={styles.card__header}>
                     <h2 className={styles.card__title}>{props.name}</h2>
-                    <p className={styles.card__text}><i className="fa fa-map-marker" aria-hidden="true"></i> {props.title}</p>
+                    <p className={styles.card__text}><i className="fa fa-map-marker" aria-hidden="true"></i> {props.role}</p>
                 </div>
                 <div className={styles.card__bottom}>
                     <div className={styles.options}>
                         <span className={styles.date}>
-                            <i className={`${styles.fa} ${styles.fa_calendar}`} aria-hidden="true"></i> {props.workTime}
+                            <i className={`${styles.fa} ${styles.fa_calendar}`} aria-hidden="true"></i> 9:00 - 17:00
                         </span>
 
                     </div>
                     <div className={styles.card__price}>
-                        {props.situation}
+                        On Time
                     </div>
                 </div>
             </div>

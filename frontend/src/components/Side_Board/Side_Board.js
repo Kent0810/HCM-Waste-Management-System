@@ -55,7 +55,7 @@ const SideBar = () => {
                 <div className={styles.leftboard__body}>
                     <p className={styles.leftboard__body__title}>{t('Administration')}</p>
                     <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><MdDashboard /></i> <span className={styles.leftboard__body__item__text}><Link to={"/dashboards"}>{t('Dashboard')}</Link></span> </div>
-                    <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><MdOutlineAnalytics /></i> <span className={styles.leftboard__body__item__text}><Link to={"/map"}>{t("Maps")}</Link></span> </div>
+                    <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><MdOutlineAnalytics /></i> <span className={styles.leftboard__body__item__text}><Link to={"/dashboards/map"}>{t("Maps")}</Link></span> </div>
                     <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><FiTruck /></i> <span className={styles.leftboard__body__item__text}><Link to={"/dashboards/vehicles"}>{t("Vehicles")}</Link></span> </div>
                     <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><BsPeopleFill /></i> <span className={styles.leftboard__body__item__text}><Link to={"/dashboards/employees"}>{t("Employees")}</Link></span> </div>
                     <div className={styles.leftboard__body__item}> <i className={styles.leftboard__body__item__icon}><MdOutlineExitToApp /></i> <span className={styles.leftboard__body__item__text} onClick={signOutHandler}><a href="/#">{t("Checkout")}</a></span> </div>

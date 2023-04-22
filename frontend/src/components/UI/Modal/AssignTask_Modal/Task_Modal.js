@@ -1,10 +1,16 @@
-import styles from './Task_Modal.module.css';
 
 import React from "react";
-
 import ReactDOM from "react-dom";
+
+import styles from './Task_Modal.module.css';
+
 import { uiActions } from '../../../../store/ui_slice';
 import { useDispatch,useSelector } from 'react-redux';
+
+import { db } from '../../../../services/config';
+import { collection, getDocs  } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+
 const Backdrop = (props) => {
     const dispatch = useDispatch();
     const isAssigningTruckVisible = useSelector(state => state.ui.isAssigningTruckVisible)
@@ -27,46 +33,68 @@ const Modal = (props) => {
     const isAssigningTruckVisible = useSelector(state => state.ui.isAssigningTruckVisible)
     const isAssigningEmployeeVisible = useSelector(state => state.ui.isAssigningEmployeeVisible)
 
-    const clickHandler1 = () =>{
+
+    const [allUsers, setAllUsers] = useState([]);
+
+    useEffect(() => {
+        const getUsersData = async () => {
+            const querySnapshot = await getDocs(collection(db, "USERS_INFO"));
+            const temp = [];
+            querySnapshot.forEach((doc) => {
+                temp.push(doc.data());
+            });
+            setAllUsers(temp);
+        }
+        getUsersData();
+    }, [])
+
+    console.log(allUsers);
+
+    const clickHandler1 = (e) =>{
         dispatch(uiActions.toggleAssigningTruckUI())
+        if(e.target.id === "Assign"){
+            dispatch(uiActions.toggleLoading())
+            setTimeout(() => {
+                dispatch(uiActions.toggleLoading())
+                dispatch(uiActions.toggleNotification())
+
+            }, 1500);
+        }
     }
-    const clickHandler2 = () =>{
+    const clickHandler2 = (e) =>{
         dispatch(uiActions.toggleAssigningEmployeeUI())
+        if(e.target.id === "Assign"){
+            dispatch(uiActions.toggleLoading())
+            setTimeout(() => {
+                dispatch(uiActions.toggleLoading())
+                dispatch(uiActions.toggleNotification())
+
+            }, 1500);
+        }
     }
     return (
         <div className={styles.modal__wrapper}>
             {isAssigningTruckVisible  && <form className={styles.modal__form} onSubmit={props.onSubmit}>
                 <h2 className={styles.modal__form__header}>Assign Truck</h2>
                 <select className={styles.modal__form__control}>
-                    <option value="" selected disabled hidden>Choose MCPs</option>
-                    <option value={"MCP1"}>MCP 1</option>
-                    <option value={"MCP2"}>MCP 2</option>
-                    <option value={"MCP3"}>MCP 3</option>
-                    <option value={"MCP4"}>MCP 4</option>
-                    <option value={"MCP5"}>MCP 5</option>
-                    <option value={"MCP6"}>MCP 6</option>
-                    <option value={"MCP7"}>MCP 7</option>
-                    <option value={"MCP8"}>MCP 8</option>
-                    <option value={"MCP9"}>MCP 9</option>
+                    <option value="" selected disabled hidden>Choose Staff</option>
+                    {
+                        allUsers.map((user) => {
+                            if(user.role !== "Admin"){
+                                return <option value={user.userName}>{user.userName} - {user.role}</option>
+                            }
+                        })
+                    }
                 </select>
                 <input type="text" className={styles.modal__form__control} name="description" placeholder="Task Description?" required="" autofocus="" />
+
                 <input type="date" className={`${styles.modal__form__control} ${styles.modal__form__date}`} name="deadline" placeholder="Deadline?..." required="" autofocus="" />
-                <input type="text" className={styles.modal__form__control} name="assignee" placeholder="Assignee?" required="" autofocus="" value={user.userName} readOnly/>
-                <select className={styles.modal__form__control}>
-                    <option value="" selected disabled hidden>Choose Staff</option>
-                    <option value={"e1"}>Nguyen Van A - Janitor</option>
-                    <option value={"e2"}>Nguyen Van B - Collector</option>
-                    <option value={"e3"}>Nguyen Van C - Janitor</option>
-                    <option value={"e4"}>Nguyen Van D - Janitor</option>
-                    <option value={"e5"}>Nguyen Van E - Janitor</option>
-                    <option value={"e6"}>Nguyen Van F - Collector</option>
-                    <option value={"e7"}>Nguyen Van G - Collector</option>
-                    <option value={"e8"}>Nguyen Van H - Janitor</option>
-                    <option value={"e9"}>Nguyen Van I - Collector</option>
-                </select>
+                
+                <input type="text" className={styles.modal__form__control} name="assignee" placeholder="Assignee?" required="" autofocus="" value={'Asignee - ' + user.userName} readOnly/>
+                
                 <div className={styles.btns}>
-                    <button className={styles.modal__form__button} type="submit" onClick={clickHandler1}>Cancel</button>
-                    <button className={styles.modal__form__button} type="submit" onClick={clickHandler1}>Assign Truck</button>
+                    <button className={styles.modal__form__button} type="submit" id='Cancel' onClick={clickHandler1}>Cancel</button>
+                    <button className={styles.modal__form__button} type="submit" id='Assign' onClick={clickHandler1}>Assign Truck</button>
                 </div>
             </form>
             }
@@ -86,6 +114,7 @@ const Modal = (props) => {
                     <option value={"MCP9"}>MCP 9</option>
                 </select>
                 <input type="text" className={styles.modal__form__control} name="description" placeholder="Task Description?" required="" autofocus="" />
+                <input type="time" className={styles.modal__form__control} name="time" placeholder="Time?" min="09:00" max="18:00" required/>
                 <input type="date" className={`${styles.modal__form__control} ${styles.modal__form__date}`} name="deadline" placeholder="Deadline?..." required="" autofocus="" />
                 <input type="text" className={styles.modal__form__control} name="assignee" placeholder="Assignee?" required="" autofocus="" value={user.userName} readOnly/>
                 <select className={styles.modal__form__control}>
@@ -93,8 +122,8 @@ const Modal = (props) => {
                     <option value={"McNeilus"}>McNeilus</option>
                 </select>
                 <div className={styles.btns}>
-                    <button className={styles.modal__form__button} type="submit" onClick={clickHandler2}>Cancel</button>
-                    <button className={styles.modal__form__button} type="submit" onClick={clickHandler2}>Assign Employee</button>
+                    <button className={styles.modal__form__button} type="submit" id='Cancel' onClick={clickHandler2}>Cancel</button>
+                    <button className={styles.modal__form__button} type="submit" id='Assign' onClick={clickHandler2}>Assign Employee</button>
                 </div>
             </form>
             }
