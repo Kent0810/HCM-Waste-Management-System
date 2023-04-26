@@ -72,6 +72,20 @@ const Modal = (props) => {
             }, 1500);
         }
     }
+    const [position, setPosition] = useState()
+    useEffect(()=>{
+        const getPositionData = async () => {
+            const querySnapshot = await getDocs(collection(db, "MCP_INFO"));
+            const temp = [];
+            querySnapshot.forEach((doc) => {
+                temp.push(doc.data());
+            });
+            
+            setPosition(temp);
+        }
+        getPositionData();
+    },[])
+
     return (
         <div className={styles.modal__wrapper}>
             {isAssigningTruckVisible  && <form className={styles.modal__form} onSubmit={props.onSubmit}>
@@ -103,15 +117,11 @@ const Modal = (props) => {
                 <h2 className={styles.modal__form__header}>Assign Employee</h2>
                 <select className={styles.modal__form__control}>
                     <option value="" selected disabled hidden>Choose MCPs</option>
-                    <option value={"MCP1"}>MCP 1</option>
-                    <option value={"MCP2"}>MCP 2</option>
-                    <option value={"MCP3"}>MCP 3</option>
-                    <option value={"MCP4"}>MCP 4</option>
-                    <option value={"MCP5"}>MCP 5</option>
-                    <option value={"MCP6"}>MCP 6</option>
-                    <option value={"MCP7"}>MCP 7</option>
-                    <option value={"MCP8"}>MCP 8</option>
-                    <option value={"MCP9"}>MCP 9</option>
+                    {
+                        position && position.map((pos) => {
+                            return <option value={pos.name}>{'MCP - '+pos.name}</option>
+                        })
+                    }
                 </select>
                 <input type="text" className={styles.modal__form__control} name="description" placeholder="Task Description?" required="" autofocus="" />
                 <input type="time" className={styles.modal__form__control} name="time" placeholder="Time?" min="09:00" max="18:00" required/>

@@ -14,10 +14,14 @@ import Switch from "../UI/Others/switch/switch";
 import useCustomTranslate from '../../hooks/useCustomTranslate'
 import { useTranslation } from 'react-i18next'
 
+
+//Firebase
 import storage from "../../store/redux";
 import { uiActions } from "../../store/ui_slice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../services/config";
+
+
 import { Link } from 'react-router-dom'
 
 const signOutHandler = () => {
